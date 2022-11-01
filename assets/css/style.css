@@ -13,6 +13,7 @@
 }
 
 body {
+  position:relative;
   font-family: "Open Sans", sans-serif;
   background: #f6f9ff;
   color: #444444;
@@ -1257,4 +1258,26 @@ h6 {
   text-align: center;
   font-size: 13px;
   color: #012970;
+}
+
+.modal-base[data-active="true"]{
+  position:absolute;
+  top:0;
+  left:0;
+  width: 100vw;
+  height: 100vh;
+  z-index:1000;
+  display:grid;
+  place-items:center;
+  background: rgba(0,0,0,0.5);
+  padding-inline: 4rem;
+  padding-bottom: 4rem; 
+}
+
+.modal-content{
+  padding: 1rem 1.5rem;
+  background:white;
+  width: 50%;
+  border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
 }

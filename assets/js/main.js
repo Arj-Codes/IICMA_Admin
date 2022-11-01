@@ -7,6 +7,16 @@
 (function() {
   "use strict";
 
+  document.querySelector("#modal-base").addEventListener("click",(e)=>{
+
+    if(document.querySelector("#modal-content").contains(e.target)){
+      //do stuff
+    }
+    else{
+      toggleModal();
+    }
+  })
+
   /**
    * Easy selector helper function
    */
@@ -318,3 +328,30 @@
   }
 
 })();
+
+const toggleModal = (id=1) => {
+  if(document.querySelector("#modal-base").getAttribute("data-active") === "true"){
+    document.querySelector("#modal-base").setAttribute("data-active", "false")
+    document.body.style.overflow = "auto";
+    document.querySelector(":root").style.scrollBehavior = null
+  }
+  else{
+    document.querySelector(":root").style.scrollBehavior = "unset"
+    document.querySelector("#modal-base").setAttribute("data-active", "true")
+    document.body.style.overflow = "hidden";
+    switch(id){
+      case 1:
+        document.querySelector("#modal-content").innerHTML= `
+          <div>Hi!</div>
+        `
+        break;
+      case 2:
+        document.querySelector("#modal-content").innerHTML= `
+          <div>Hi case 2!</div>
+        `
+        break;
+      default:
+        break;
+    }
+  } 
+}
