@@ -332,11 +332,13 @@
 const toggleModal = (id=1) => {
   if(document.querySelector("#modal-base").getAttribute("data-active") === "true"){
     document.querySelector("#modal-base").setAttribute("data-active", "false")
+    document.querySelector("#modal-content").style.display = "none";
     document.body.style.overflow = "auto";
     document.querySelector(":root").style.scrollBehavior = null
   }
   else{
     document.querySelector(":root").style.scrollBehavior = "unset"
+    document.querySelector("#modal-content").style.display = "inherit";
     document.querySelector("#modal-base").setAttribute("data-active", "true")
     document.body.style.overflow = "hidden";
     switch(id){
@@ -345,13 +347,18 @@ const toggleModal = (id=1) => {
           <div>
           <form>
           <div class="form-group">
+            <label for="exampleInputId">Enter ID</label>
+            <input type="text" class="form-control" id="exampleInputId" aria-describedby="IdHelp" placeholder="Enter Id">
+            <label for="exampleInputName">Enter Name</label>
+            <input type="text" class="form-control" id="exampleInputName" aria-describedby="NameHelp" placeholder="Enter Name">
             <label for="exampleInputEmail1">Email address</label>
             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <label for="exampleInputPhNo">Phone Number</label>
+            <input type="number" class="form-control" id="exampleInputPhNo" placeholder="Enter phone number">
+            <label for="exampleInputPosition">Position</label>
+            <input type="text" class="form-control" id="exampleInputPosition" placeholder="Enter position">
           </div>
           <div class="form-group form-check">
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
